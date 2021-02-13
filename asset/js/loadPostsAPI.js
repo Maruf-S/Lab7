@@ -1,16 +1,16 @@
 // UI Vars 
 const postDiv3 = document.getElementById('thePosts');
-
+const loading = document.getElementById('loader');
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
     //load_fromPlaceHolder();
-    loadDataNew();
+    setTimeout(loadDataNew(),2000);
+
 });
 
 
 //load a single customer function 
 function load_fromPlaceHolder() {
-
     //open the request 
     fetch('https://jsonplaceholder.typicode.com/posts')
         .then(function(res) {
@@ -66,6 +66,7 @@ async function load_fromPlaceHolder_new() {
 
 function loadDataNew() {
     load_fromPlaceHolder_new().then(function(posts) {
+        loading.style.display = "none";
             //iterate over each post [100 posts]
             let output = '';
             posts.forEach(function(post) {
