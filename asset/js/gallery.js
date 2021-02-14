@@ -9,6 +9,5 @@ async function ChangeThePicture() {
     let response = await fetch('https://picsum.photos/1280/720');
     let data = await response.url;
     let activeImage = document.querySelector(".carousel-item.active").querySelector("img");
-    // console.log(activeImage);
     activeImage.src = data;
 }
