@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: cover;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/asset/img/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+body:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.clock {
+    z-index: 10000000;
+    width: 300px;
+    height: 300px;
+    background: url(/asset/img/clock.png);
+    background-size: cover;
+    border-radius: 100%;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);            
+}
+/* .clock::before {
+    z-index: -1;
+    border-radius: 100%;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url(asset/img/background.jpg);
+    background-size: cover;
+    opacity: 0.2;
+} */
+
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    /* border: 1px solid white; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 10000;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.clock .hand.second {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    width: 3px;
+    height: 40%;
+    background-color: red;
+}
+
+.clock .hand.minute {
+    width: 7px;
+    height: 35%;
+    background-color: black;
+    border:1px solid white;
+}
+
+.clock .hand.hour {
+    width: 10px;
+    height: 25%;
+    border: 1px solid white;
+    background-color: black;
+}
